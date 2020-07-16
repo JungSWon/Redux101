@@ -16,18 +16,26 @@ const number = document.querySelector("span");
     // 파라미터 : (state변수명 = 이니셜상태값, action )
 const countModifier = (count = 0, action) => {
     console.log(count, 'action :', action)
-    if (action.type === 'plus'){return count +1}
-    else if (action.type === 'minus'){return count -1}
+    if (action.type === 'ADD'){return count +1}
+    else if (action.type === 'MINUS'){return count -1}
     else {return 0}
 };
 
 // createStore가 요구하는 파라미터 : reducer 주기 : 그리고 그것은 함수여야 한다!!
 const countStore = createStore(countModifier)
 
-// countModifier에세 action을 보내는 방법
-countStore.dispatch( {type: "plus"})
-countStore.dispatch( {type: "plus"})
-countStore.dispatch( {type: "minus"})
-countStore.dispatch( {type: "plus"})
-countStore.dispatch( {type: "plus"})
-console.log(countStore.getState())
+const onChange = () => {
+    number.innerText = countStore.getState()
+}
+
+countStore.subscribe(onChange)
+
+const handleAdd = () => {
+    countStore.dispatch({type:"ADD"})
+}
+const handleMinus = () => {
+    countStore.dispatch({type:"MINUS"})
+}
+
+add.addEventListener('click', handleAdd)
+minus.addEventListener('click', handleMinus)
