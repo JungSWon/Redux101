@@ -11,30 +11,39 @@ const add = document.getElementById("add");
 const minus = document.getElementById("minus");
 const number = document.querySelector("span");
 
-// data를 modify(수정)하는 함수 : App의 data를 리턴한다.
-    // 이구역에 data를 바꿀수 있는건 countModifier뿐!
-    // 파라미터 : (state변수명 = 이니셜상태값, action )
+const ADD = 'ADD';
+const MINUS = 'MINUS';
+
+// if(action=='add'){}else if(action=='minus'){} 대신
+    // redux가 지원하는 switch구문을 사용할 수 있다. 깔-끔
+    // 공식문서 : https://redux.js.org/basics/reducers
 const countModifier = (count = 0, action) => {
-    console.log(count, 'action :', action)
-    if (action.type === 'ADD'){return count +1}
-    else if (action.type === 'MINUS'){return count -1}
-    else {return 0}
+    switch (action.type) {
+        case ADD:
+            return count +1
+        case MINUS:
+            return count -1
+        default: return count
+    }
 };
 
-// createStore가 요구하는 파라미터 : reducer 주기 : 그리고 그것은 함수여야 한다!!
+// createStore가 요구하는 파라미터 : reducer  : 그리고 그것은 함수여야 한다!!
 const countStore = createStore(countModifier)
 
 const onChange = () => {
     number.innerText = countStore.getState()
 }
 
+// change를 store에서 감지하여 뭔가를 하고 싶다면, 구독! subscribe.
 countStore.subscribe(onChange)
 
 const handleAdd = () => {
-    countStore.dispatch({type:"ADD"})
+    countStore.dispatch({type:ADD})
+    // action object property는 반드시 type 이어야 한다.
+    // action type은 UPPER_CASE가 네이밍룰
 }
 const handleMinus = () => {
-    countStore.dispatch({type:"MINUS"})
+    countStore.dispatch({type:MINUS})
 }
 
 add.addEventListener('click', handleAdd)

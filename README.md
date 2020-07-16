@@ -14,9 +14,14 @@
 - [x] \#1.1 Store and Reducer
 - [x] \#1.2 Actions
 - [x] \#1.3 Subscriptions
-- [ ] \#1.4 Recap Refactor
+- [x] \#1.4 Recap Refactor
 
-### 2. RURE REDUX: TO DO LIST
+### 2. PURE REDUX: TO DO LIST
+- [ ] \#2.0 Vanilla ToDo
+- [ ] \#2.1 State Mutation
+- [ ] \#2.2 Delete To Do
+- [ ] \#2.3 Delete To Do Part Two
+- [ ] \#2.4 Conclusions
 
 ### 3. REACT REDUX
 
