@@ -13,11 +13,21 @@ const number = document.querySelector("span");
 
 // data를 modify(수정)하는 함수 : App의 data를 리턴한다.
     // 이구역에 data를 바꿀수 있는건 countModifier뿐!
-const countModifier = (count = 0 ) => {
-
-    return count
+    // 파라미터 : (state변수명 = 이니셜상태값, action )
+const countModifier = (count = 0, action) => {
+    console.log(count, 'action :', action)
+    if (action.type === 'plus'){return count +1}
+    else if (action.type === 'minus'){return count -1}
+    else {return 0}
 };
 
 // createStore가 요구하는 파라미터 : reducer 주기 : 그리고 그것은 함수여야 한다!!
-const store = countStore(countModifier)
+const countStore = createStore(countModifier)
 
+// countModifier에세 action을 보내는 방법
+countStore.dispatch( {type: "plus"})
+countStore.dispatch( {type: "plus"})
+countStore.dispatch( {type: "minus"})
+countStore.dispatch( {type: "plus"})
+countStore.dispatch( {type: "plus"})
+console.log(countStore.getState())

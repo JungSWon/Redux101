@@ -12,9 +12,9 @@
 ### 1. RURE REDUX: COUNTER
 - [x] \#1.0 Vanilla Counter
 - [x] \#1.1 Store and Reducer
-- [] \#1.2 Actions
-- [] \#1.3 Subscriptions
-- [] \#1.4 Recap Refactor
+- [x] \#1.2 Actions
+- [ ] \#1.3 Subscriptions
+- [ ] \#1.4 Recap Refactor
 
 ### 2. RURE REDUX: TO DO LIST
 
