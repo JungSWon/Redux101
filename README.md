@@ -17,7 +17,8 @@
 - [x] \#1.4 Recap Refactor
 
 ### 2. PURE REDUX: TO DO LIST
-- [ ] \#2.0 Vanilla ToDo
+- 리덕스 방식으로 로컬 데이터를 CRUD하기 
+- [x] \#2.0 Vanilla ToDo
 - [ ] \#2.1 State Mutation
 - [ ] \#2.2 Delete To Do
 - [ ] \#2.3 Delete To Do Part Two
