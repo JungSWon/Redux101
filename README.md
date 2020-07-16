@@ -11,7 +11,7 @@
 
 ### 1. RURE REDUX: COUNTER
 - [x] \#1.0 Vanilla Counter
-- [] \#1.1 Store and Reducer
+- [x] \#1.1 Store and Reducer
 - [] \#1.2 Actions
 - [] \#1.3 Subscriptions
 - [] \#1.4 Recap Refactor
