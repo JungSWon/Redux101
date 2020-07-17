@@ -26,6 +26,13 @@
 
 - Done Redux with Vanilla JS
 
-### 3. REACT REDUX
+### 3. REACT REDUX 
+- [x] \3.0 Setup
+- [ ] \3.1 Connecting to Store 
+- [ ] \3.2 mapStateToProps
+- [ ] \3.3 mapDispatchToProps
+- [ ] \3.4 Deleting To DO
+- [ ] \3.5 Detail Screen
+- [ ] \3.6 Conclusions
 
 ### 4. REDUX TOOLKIT 
