@@ -19,7 +19,7 @@ const delTodo = delId => {
 const reducer = (state = [], action)=>{
     switch (action.type) {
         case ADD_TODO: return [ ...state, {text: action.text, id: Date.now()} ]
-        case DELETE_TODO: return []
+        case DELETE_TODO: return  state.filter(td => td.id !== action.delId)
         default: return state
     }
 }
@@ -62,7 +62,7 @@ const onSubmit = e =>{
 
 
 const onClick = e =>{
-    const delId = e.path[1].id
+    const delId = parseInt(e.path[1].id)
     console.log(e.path[1].id)
     dispatchDelTodo(delId)
 }
