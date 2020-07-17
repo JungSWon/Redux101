@@ -18,8 +18,11 @@ const delTodo = delId => {
 
 const reducer = (state = [], action)=>{
     switch (action.type) {
-        case ADD_TODO: return [ ...state, {text: action.text, id: Date.now()} ]
-        case DELETE_TODO: return  state.filter(td => td.id !== action.delId)
+        case ADD_TODO:
+            const newTodo = {text: action.text, id: Date.now()}
+            return [ newTodo, ...state  ]
+        case DELETE_TODO:
+            return  state.filter(td => td.id !== action.delId)
         default: return state
     }
 }

@@ -22,7 +22,9 @@
 - [x] \#2.1 State Mutation
 - [x] \#2.2 Delete To Do
 - [x] \#2.3 Delete To Do Part Two
-- [ ] \#2.4 Conclusions
+- [x] \#2.4 Conclusions
+
+- Done Redux with Vanilla JS
 
 ### 3. REACT REDUX
 
