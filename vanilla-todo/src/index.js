@@ -7,18 +7,18 @@ const ul = document.querySelector("ul")
 const ADD_TODO = 'ADD_TODO'
 const DELETE_TODO ='DELETE_TODO'
 
-// store를 수정할 수 있는 유일한 방법 : action을 보내기
-// NEVER USE MUTATE STATE!!!! state를 변형하지 말라.
-    // 그 대신 new state objects, 즉 새로운 오브젝트를 리턴
+
+const addTodo = text => {
+    return {type:ADD_TODO, text}
+}
+
+const delTodo = delId => {
+    return {type:DELETE_TODO, delId}
+}
+
 const reducer = (state = [], action)=>{
-    // console.log(action)
     switch (action.type) {
-        case ADD_TODO: return [
-            // ...state : state array의 contents를 의미 : 한묶음의 array가 아니라 컨텐츠를 헤쳐놓는것
-            ...state, {text: action.text, id: Date.now()}
-                // {text: action.text, id: Date.now()} , ...state 최신todo를 앞or뒤로 넣는것을 조정할수있다.
-            // state.push(action.text) 안됨. mutate 하지마라.
-        ]   // 요약: [...기존컨텐츠들, {text:새컨텐츠}]
+        case ADD_TODO: return [ ...state, {text: action.text, id: Date.now()} ]
         case DELETE_TODO: return []
         default: return state
     }
@@ -32,25 +32,39 @@ const paintToDos = () => {
     const toDos = store.getState()
     ul.innerHTML ='';
     toDos.forEach(toDo => {
-        const li = document.createElement(('li'));
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
         li.id = toDo.id
         li.innerText = toDo.text
+        btn.innerText = 'DEL'
         ul.appendChild(li)
+        li.appendChild(btn)
+        btn.addEventListener('click', onClick)
     })
 }
 store.subscribe(paintToDos)
 
-const addTodo = text =>{
-    store.dispatch({type: ADD_TODO, text})
+
+const dispatchAddTodo = text =>{
+    store.dispatch(addTodo(text))
 }
 
+const dispatchDelTodo = delId => {
+    store.dispatch(delTodo(delId))
+}
 
 const onSubmit = e =>{
     e.preventDefault();
     const todo = input.value;
     input.value = '';
-    // store.dispatch({type: ADD_TODO, text:todo})
-    addTodo(todo)
+    dispatchAddTodo(todo)
+}
+
+
+const onClick = e =>{
+    const delId = e.path[1].id
+    console.log(e.path[1].id)
+    dispatchDelTodo(delId)
 }
 
 form.addEventListener('submit',onSubmit);
