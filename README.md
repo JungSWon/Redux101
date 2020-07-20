@@ -23,7 +23,6 @@
 - [x] \#2.2 Delete To Do
 - [x] \#2.3 Delete To Do Part Two
 - [x] \#2.4 Conclusions
-
 - Done Redux with Vanilla JS
 
 ### 3. REACT REDUX 
