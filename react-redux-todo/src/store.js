@@ -7,7 +7,7 @@ export const addTodo = (text) => {
     return {type:ADD, text}
 }
 
-export const delTodo = (delId) => {
+export const delTodo = delId => {
     return {type:DELETE, delId}
 }
 
@@ -16,7 +16,7 @@ const reducer = (state=[], action)=>{
         case ADD:
             return [{text: action.text, id:Date.now()}, ...state]
         case DELETE:
-            return state.filter(todo => todo.id !== delId)
+            return state.filter(todo => todo.id !== action.delId)
         default:
             return state
     }

@@ -29,7 +29,7 @@
 ### 3. REACT REDUX 
 - [x] \3.0 Setup
 - [x] \3.1 Connecting to Store 
-- [ ] \3.2 mapStateToProps
+- [x] \3.2 mapStateToProps
 - [ ] \3.3 mapDispatchToProps
 - [ ] \3.4 Deleting To DO
 - [ ] \3.5 Detail Screen
